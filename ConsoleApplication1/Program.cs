@@ -12,7 +12,7 @@ namespace ConsoleApplication1
         
         static void Main(string[] args)
         {
-            SerialPort sepo=new SerialPort();
+            SerialPort sepo = new SerialPort();
             sepo.BaudRate = 9600;
             sepo.PortName = "COM3";
             sepo.Open();
