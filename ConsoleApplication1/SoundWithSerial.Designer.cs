@@ -30,12 +30,13 @@
         {
             this.SerialPortCom = new System.Windows.Forms.TextBox();
             this.Start = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.StartButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BoudRateBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.ReadTimeBox = new System.Windows.Forms.TextBox();
+            this.StopButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SerialPortCom
@@ -44,6 +45,7 @@
             this.SerialPortCom.Name = "SerialPortCom";
             this.SerialPortCom.Size = new System.Drawing.Size(100, 19);
             this.SerialPortCom.TabIndex = 0;
+            this.SerialPortCom.Text = "COM3";
             this.SerialPortCom.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Start
@@ -54,16 +56,16 @@
             this.Start.TabIndex = 1;
             this.Start.Text = "Start!";
             this.Start.UseVisualStyleBackColor = true;
-            this.Start.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // StartButton
             // 
-            this.button1.Location = new System.Drawing.Point(123, 139);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Start!";
-            this.button1.UseVisualStyleBackColor = true;
+            this.StartButton.Location = new System.Drawing.Point(80, 139);
+            this.StartButton.Name = "StartButton";
+            this.StartButton.Size = new System.Drawing.Size(57, 23);
+            this.StartButton.TabIndex = 2;
+            this.StartButton.Text = "Start!";
+            this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButton_Click);
             // 
             // label1
             // 
@@ -89,6 +91,7 @@
             this.BoudRateBox.Name = "BoudRateBox";
             this.BoudRateBox.Size = new System.Drawing.Size(100, 19);
             this.BoudRateBox.TabIndex = 5;
+            this.BoudRateBox.Text = "9600";
             // 
             // label3
             // 
@@ -106,21 +109,33 @@
             this.ReadTimeBox.Size = new System.Drawing.Size(100, 19);
             this.ReadTimeBox.TabIndex = 7;
             // 
+            // StopButton
+            // 
+            this.StopButton.Location = new System.Drawing.Point(143, 139);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(63, 23);
+            this.StopButton.TabIndex = 8;
+            this.StopButton.Text = "Stop";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            // 
             // SoundWithSerial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(230, 191);
+            this.Controls.Add(this.StopButton);
             this.Controls.Add(this.ReadTimeBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BoudRateBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.StartButton);
             this.Controls.Add(this.Start);
             this.Controls.Add(this.SerialPortCom);
             this.Name = "SoundWithSerial";
             this.Text = "SoundWithSerial";
+            this.Load += new System.EventHandler(this.SoundWithSerial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,12 +145,13 @@
 
         private System.Windows.Forms.TextBox SerialPortCom;
         private System.Windows.Forms.Button Start;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button StartButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox BoudRateBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ReadTimeBox;
+        private System.Windows.Forms.Button StopButton;
 
     }
 }
