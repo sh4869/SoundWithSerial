@@ -12,12 +12,28 @@ namespace ConsoleApplication1
         
         static void Main(string[] args)
         {
-            SerialPort sepo;
+            SerialPort sepo=new SerialPort();
             sepo.BaudRate = 9600;
-            sepo.PortName = "";
+            sepo.PortName = "COM3";
             sepo.Open();
-
-            System.Media.SystemSounds.Beep.Play();
+            sepo.ReadTimeout = 200;
+            while (true)
+            {
+                try
+                {
+                    sepo.ReadByte();
+                    System.Media.SystemSounds.Asterisk.Play();
+                    Console.Write("Beep");
+                    while (!Console.KeyAvailable)
+                    {
+                        
+                    }
+                    break;
+                }
+                catch (Exception)
+                {
+                }
+            }
 
         }
     }
