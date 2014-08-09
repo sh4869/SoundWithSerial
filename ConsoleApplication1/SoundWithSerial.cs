@@ -27,6 +27,9 @@ namespace ConsoleApplication1
         }
         private void StartButton_Click(object sender, EventArgs e)
         {
+
+            System.Media.SoundPlayer music = new System.Media.SoundPlayer(@"C:\Users\nobuK\Music\Program\playsound.wav");
+            music.PlaySync();
             SerialPort sepo = new SerialPort();
             sepo.BaudRate = Convert.ToInt32(this.BoudRateBox.Text);
             sepo.PortName = this.SerialPortCom.Text;
@@ -46,7 +49,7 @@ namespace ConsoleApplication1
                 try
                 {
                     sepo.ReadByte();
-                    System.Media.SystemSounds.Asterisk.Play();
+                    music.Play();
                     Console.Write("Beep");
                 }
                 catch (Exception)
