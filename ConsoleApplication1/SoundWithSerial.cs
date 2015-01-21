@@ -27,8 +27,12 @@ namespace ConsoleApplication1
         }
         private void StartButton_Click(object sender, EventArgs e)
         {
-
-            System.Media.SoundPlayer music = new System.Media.SoundPlayer(@"C:\Users\nobuK\Music\Program\playsound.wav");
+            String  musicFileName   = @"C:\Users\nobuK\Music\Program\playsound.wav"; 
+            if(!System.IO.File.Exists(musicFileName)){
+                MessageBox.Show("音声ファイルが見つかりません!");
+                this.Close();
+            }
+            System.Media.SoundPlayer music = new System.Media.SoundPlayer(musicFileName);
             music.PlaySync();
             SerialPort sepo = new SerialPort();
             sepo.BaudRate = Convert.ToInt32(this.BoudRateBox.Text);
